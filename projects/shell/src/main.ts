@@ -15,5 +15,17 @@ import('./bootstrap').catch((err) => console.error(err));
 
     & create flights module and flight component on mfe1
     $ ng g module flights --project=mfe1
+
+    & in shell create route
+    const routes: Routes = [
+      {
+        path: 'flights',
+        loadChildren: () => import('mfe1/Module')
+          .then(m => m.FlightsModule)
+      },
+    ];
+    & create 'mfe1/Module' to remove type issue under: projects\shell\src\decl.d.ts
+    declare module 'mfe1/Module';
+
     
   */
