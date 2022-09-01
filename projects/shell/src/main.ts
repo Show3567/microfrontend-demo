@@ -26,6 +26,5 @@ import('./bootstrap').catch((err) => console.error(err));
     ];
     & create 'mfe1/Module' to remove type issue under: projects\shell\src\decl.d.ts
     declare module 'mfe1/Module';
-
     
   */
