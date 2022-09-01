@@ -12,5 +12,8 @@ import('./bootstrap').catch((err) => console.error(err));
     & add @angular-architects/module-federation
     $ ng add @angular-architects/module-federation --project shell --type host --port 4200
     $ ng add @angular-architects/module-federation --project mfe1 --type remote --port 4201
+
+    & create flights module and flight component on mfe1
+    $ ng g module flights --project=mfe1
     
   */
