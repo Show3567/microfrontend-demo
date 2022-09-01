@@ -21,8 +21,7 @@ export class RemoteCounterComponent implements OnInit {
   }
 
   multiplyByAmount() {
-    this.store.dispatch(
-      CounterActions.MultiplyByAmount({ amount: +this.incrementAmount })
-    );
+    const amount = +this.incrementAmount !== 0 ? +this.incrementAmount : 1;
+    this.store.dispatch(CounterActions.MultiplyByAmount({ amount }));
   }
 }
