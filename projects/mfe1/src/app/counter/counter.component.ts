@@ -11,7 +11,7 @@ import * as CounterActions from './ngrx/counter.actions';
   styleUrls: ['./counter.component.sass'],
 })
 export class RemoteCounterComponent implements OnInit {
-  incrementAmount = 0;
+  incrementAmount = 1;
   count$!: Observable<number>;
 
   constructor(private store: Store<AppState>) {}
