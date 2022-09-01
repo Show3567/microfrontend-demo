@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AppState } from '../app.interfaces';
+import { countSelector } from './counter-ngrx/counter.selectors';
+import * as CounterActions from './counter-ngrx/counter.actions';
 
 @Component({
   selector: 'app-counter',
@@ -15,12 +19,14 @@ export class CounterComponent {
   incrementAmount = 0;
   count$!: Observable<number>;
   decrement() {
-    this.store.dispatch(decrement());
+    this.store.dispatch(CounterActions.Decrement());
   }
   increment() {
-    this.store.dispatch(increment());
+    this.store.dispatch(CounterActions.Increment());
   }
   incrementByAmount() {
-    this.store.dispatch(incrementByAmount({ amount: +this.incrementAmount }));
+    this.store.dispatch(
+      CounterActions.IncrementByAmount({ amount: +this.incrementAmount })
+    );
   }
 }
