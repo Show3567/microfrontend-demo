@@ -7,7 +7,7 @@ module.exports = withModuleFederationPlugin({
   name: "mfe1",
   filename: "remoteEntry.js",
   exposes: {
-    './Module': './projects/mfe1/src/app/flights/flights.module.ts',
+    './RemoteModule': './projects/mfe1/src/app/counter/counter.module.ts',
   },
   shared: {
     ...shareAll({
