@@ -9,7 +9,7 @@ export const initialState: CounterState = {
   remoteCount: 1,
 };
 
-export const counterReducer = createReducer(
+export const RemoteCounterReducer = createReducer(
   initialState,
   on(CounterActions.MultiplyByAmount, (state, { amount }) => ({
     ...state,
@@ -17,6 +17,6 @@ export const counterReducer = createReducer(
   }))
 );
 
-export function reducer(state: CounterState | undefined, action: Action) {
-  return counterReducer(state, action);
-}
+// export function reducer(state: CounterState | undefined, action: Action) {
+//   return counterReducer(state, action);
+// }
