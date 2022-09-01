@@ -7,9 +7,9 @@ import { CounterComponent } from './counter/counter.component';
 const routes: Routes = [
   { path: 'adder', component: CounterComponent },
   {
-    path: 'flights',
+    path: 'remote',
     loadChildren: () =>
-      import('mfe1/RemoteModule').then((m) => m.FlightsModule),
+      import('mfe1/RemoteModule').then((m) => m.CounterModule),
   },
   { path: '', redirectTo: '/adder', pathMatch: 'full' },
 ];
