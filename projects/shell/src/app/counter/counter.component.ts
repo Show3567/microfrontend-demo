@@ -11,13 +11,14 @@ import * as CounterActions from './counter-ngrx/counter.actions';
   styleUrls: ['./counter.component.scss'],
 })
 export class CounterComponent {
+  incrementAmount = 0;
+  count$!: Observable<number>;
+
   constructor(private store: Store<AppState>) {
     // this.count$ = this.store.select('counter', 'count');
     this.count$ = this.store.select(countSelector);
   }
 
-  incrementAmount = 0;
-  count$!: Observable<number>;
   decrement() {
     this.store.dispatch(CounterActions.Decrement());
   }
