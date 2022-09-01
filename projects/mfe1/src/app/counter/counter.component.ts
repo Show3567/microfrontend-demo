@@ -10,12 +10,13 @@ import * as CounterActions from './ngrx/counter.actions';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.sass'],
 })
-export class RemoteCounterComponent {
+export class RemoteCounterComponent implements OnInit {
   incrementAmount = 0;
   count$!: Observable<number>;
 
-  constructor(private store: Store<AppState>) {
-    // this.count$ = this.store.select('counter', 'count');
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit(): void {
     this.count$ = this.store.select(countSelector);
   }
 
