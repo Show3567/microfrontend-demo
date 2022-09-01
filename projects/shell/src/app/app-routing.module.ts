@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'adder', component: CounterComponent },
   {
     path: 'flights',
-    loadChildren: () => import('mfe1/Module').then((m) => m.FlightsModule),
+    loadChildren: () =>
+      import('mfe1/RemoteModule').then((m) => m.FlightsModule),
   },
   { path: '', redirectTo: '/adder', pathMatch: 'full' },
 ];
