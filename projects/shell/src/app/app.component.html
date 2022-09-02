@@ -4,7 +4,9 @@
     <router-outlet></router-outlet>
     <br />
     <button routerLink="/remote/multiply">Next</button>
-    <span>
+
+    <div>{{ shellService.counter$ | async }}</div>
+    <!-- <span>
       <span>Learn </span>
       <a
         class="App-link"
@@ -23,6 +25,6 @@
       >
         Ngrx
       </a>
-    </span>
+    </span> -->
   </header>
 </div>
