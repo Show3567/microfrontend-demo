@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, fromEvent } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -21,18 +21,24 @@ export class ShellService {
   // );
 
   constructor() {
-    fromEvent<StorageEvent>(window, 'storage').pipe(
-      filter((event) => event.storageArea === sessionStorage),
-      filter((event) => event.key === 'message'),
-      tap((msg) => {
-        console.log('msg: ', msg);
-      })
-    );
+    fromEvent<StorageEvent>(window, 'counterEvent')
+      .pipe(
+        tap((data: any) => {
+          this.counter = data.detail.counter;
+          this.counter$.next(this.counter);
+        })
+      )
+      .subscribe();
   }
 
   increase() {
     this.counter++;
-    sessionStorage.setItem('counter', this.counter.toString());
+    const counterEvent = new CustomEvent('counterEvent', {
+      detail: {
+        counter: this.counter,
+      },
+    });
+    window.dispatchEvent(counterEvent);
     this.counter$.next(this.counter);
   }
 
