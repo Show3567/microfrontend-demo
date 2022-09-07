@@ -44,7 +44,7 @@ export class ShellService {
 
   decrease() {
     this.counter--;
-    sessionStorage.setItem('counter', this.counter.toString());
+    // sessionStorage.setItem('counter', this.counter.toString());
     this.counter$.next(this.counter);
   }
 }
