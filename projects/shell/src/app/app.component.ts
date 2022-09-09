@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ShellService } from './services/shell.service';
 import { Store } from '@ngrx/store';
+
+import { ShellService } from './services/shell.service';
 import { remoteCounterSelector } from './counter/counter-ngrx/remotecounter.selector';
 
 @Component({
