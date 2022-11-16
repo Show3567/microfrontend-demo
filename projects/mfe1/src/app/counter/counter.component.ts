@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 import { AppState } from '../app.interfaces';
 import { countSelector } from './ngrx/counter.selectors';
-import * as CounterActions from './ngrx/counter.actions';
 import { ShellService } from 'projects/shell/src/app/services/shell.service';
+import * as CounterActions from './ngrx/counter.actions';
 
 @Component({
   selector: 'app-counter',
@@ -23,10 +23,11 @@ export class RemoteCounterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.count$ = this.store.select(countSelector);
+
     this.shellService.counter$.subscribe((num) => {
       this.counter = num;
     });
-    this.count$ = this.store.select(countSelector);
   }
 
   multiplyByAmount() {

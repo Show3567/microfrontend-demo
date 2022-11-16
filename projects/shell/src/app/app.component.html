@@ -1,13 +1,21 @@
 <div class="App">
   <header class="App-header">
     <img src="../assets/angular.svg" class="App-logo" alt="logo" />
+    <hr />
     <router-outlet></router-outlet>
-    <br />
-    <button routerLink="/remote/multiply">Next</button>
 
-    <!-- <div>{{ shellService.counter$ | async }}</div>
-    <button (click)="shellService.increase()">+</button>
-    <button (click)="shellService.decrease()">-</button> -->
+    <hr />
+    <div style="display: flex">
+      <button routerLink="/remote/multiply" class="button">MF1</button>
+      <button routerLink="/adder" class="button">Shell</button>
+    </div>
+
+    <div>{{ shellService.counter$ | async }}</div>
+    <div style="display: flex">
+      <button (click)="shellService.increase()" class="button">+</button>
+      <button (click)="shellService.decrease()" class="button">-</button>
+    </div>
+
     <span>
       <span>Learn </span>
       <a

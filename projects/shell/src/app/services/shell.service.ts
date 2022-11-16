@@ -25,6 +25,7 @@ export class ShellService {
       .pipe(
         tap((data: any) => {
           this.counter = data.detail.counter;
+          console.log(this.counter);
           this.counter$.next(this.counter);
         })
       )
@@ -39,7 +40,7 @@ export class ShellService {
       },
     });
     window.dispatchEvent(counterEvent);
-    this.counter$.next(this.counter);
+    // this.counter$.next(this.counter);
   }
 
   decrease() {
