@@ -1,27 +1,17 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, fromEvent } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ShellService {
+export class ShellService implements OnDestroy {
+  private subscrpition$ = new Subscription();
   private counter = 1;
   counter$ = new BehaviorSubject<number>(this.counter);
 
-  // sessionListener$: Observable<StorageEvent> = fromEvent<StorageEvent>(
-  //   window,
-  //   'storage'
-  // ).pipe(
-  //   filter((event) => event.storageArea === sessionStorage),
-  //   filter((event) => event.key === 'message'),
-  //   tap((msg) => {
-  //     console.log('msg: ', msg);
-  //   })
-  // );
-
   constructor() {
-    fromEvent<StorageEvent>(window, 'counterEvent')
+    this.subscrpition$ = fromEvent<StorageEvent>(window, 'counterEvent')
       .pipe(
         tap((data: any) => {
           this.counter = data.detail.counter;
@@ -30,6 +20,9 @@ export class ShellService {
         })
       )
       .subscribe();
+  }
+  ngOnDestroy(): void {
+    this.subscrpition$.unsubscribe();
   }
 
   increase() {
