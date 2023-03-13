@@ -7,7 +7,8 @@ import { filter, tap } from 'rxjs/operators';
 })
 export class ShellService implements OnDestroy {
   private subscrpition$ = new Subscription();
-  private counter = 1;
+
+  private counter = 10;
   counter$ = new BehaviorSubject<number>(this.counter);
 
   constructor() {
@@ -15,7 +16,6 @@ export class ShellService implements OnDestroy {
       .pipe(
         tap((data: any) => {
           this.counter = data.detail.counter;
-          console.log(this.counter);
           this.counter$.next(this.counter);
         })
       )

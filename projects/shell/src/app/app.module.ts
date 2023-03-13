@@ -20,3 +20,8 @@ import { counterReducer } from './counter/counter-ngrx/counter.reducers';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+// {
+//   counter: {},
+//   remotecounter: {}
+// }

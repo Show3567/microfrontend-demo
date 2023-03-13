@@ -2,21 +2,22 @@
   <header class="App-header">
     <img src="../assets/angular.svg" class="App-logo" alt="logo" />
     <hr />
+
     <router-outlet></router-outlet>
 
     <hr />
     <div style="display: flex">
-      <button routerLink="/remote/multiply" class="button">MF1</button>
       <button routerLink="/adder" class="button">Shell</button>
+      <button routerLink="/remote/multiply" class="button">MF1</button>
     </div>
 
-    <div>{{ shellService.counter$ | async }}</div>
+    <div>shell counter: {{ shellService.counter$ | async }}</div>
     <div style="display: flex">
       <button (click)="shellService.increase()" class="button">+</button>
       <button (click)="shellService.decrease()" class="button">-</button>
     </div>
 
-    <span>
+    <!-- <span>
       <span>Learn </span>
       <a
         class="App-link"
@@ -35,7 +36,7 @@
       >
         Ngrx
       </a>
-    </span>
+    </span> -->
   </header>
 </div>
 
