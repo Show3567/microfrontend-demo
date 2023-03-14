@@ -1,11 +1,8 @@
+<div>Remote: {{ remotecounter }}</div>
+
 <div class="App">
   <header class="App-header">
     <img src="../assets/angular.svg" class="App-logo" alt="logo" />
-    <hr />
-
-    <router-outlet></router-outlet>
-
-    <hr />
     <div style="display: flex">
       <button routerLink="/adder" class="button">Shell</button>
       <button routerLink="/remote/multiply" class="button">MF1</button>
@@ -15,6 +12,10 @@
     <div style="display: flex">
       <button (click)="shellService.increase()" class="button">+</button>
       <button (click)="shellService.decrease()" class="button">-</button>
+    </div>
+
+    <div class="router_container" style="border: 2px solid green">
+      <router-outlet></router-outlet>
     </div>
 
     <!-- <span>
@@ -39,5 +40,3 @@
     </span> -->
   </header>
 </div>
-
-<div>Remote: {{ remotecounter }}</div>

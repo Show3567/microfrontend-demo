@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
-import { filter, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import { filter, tap } from 'rxjs/operators';
 export class ShellService implements OnDestroy {
   private subscrpition$ = new Subscription();
 
-  private counter = 10;
+  private counter = 0;
   counter$ = new BehaviorSubject<number>(this.counter);
 
   constructor() {
