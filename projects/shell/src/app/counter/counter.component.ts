@@ -21,11 +21,11 @@ export class CounterComponent implements OnInit {
     this.count$ = this.store.select(countSelector);
   }
 
-  decrement() {
-    this.store.dispatch(CounterActions.Decrement());
-  }
   increment() {
     this.store.dispatch(CounterActions.Increment());
+  }
+  decrement() {
+    this.store.dispatch(CounterActions.Decrement());
   }
   incrementByAmount() {
     this.store.dispatch(
