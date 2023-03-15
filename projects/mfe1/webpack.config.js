@@ -5,7 +5,9 @@ const {
 
 module.exports = withModuleFederationPlugin({
   name: "mfe1",
+
   filename: "remoteEntry.js",
+  
   exposes: {
     './RemoteModule': './projects/mfe1/src/app/counter/counter.module.ts',
   },
