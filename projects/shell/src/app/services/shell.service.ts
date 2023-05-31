@@ -1,15 +1,21 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ShellService {
+export class ShellService implements OnDestroy {
   private counter = 0;
+  private sbp = new Subscription();
   counter$ = new BehaviorSubject<number>(this.counter);
 
-  constructor() {}
+  constructor() {
+    this.sbp = this.liteningEvent().subscribe();
+  }
+  ngOnDestroy(): void {
+    this.sbp.unsubscribe();
+  }
 
   liteningEvent(): Observable<null> {
     return fromEvent<StorageEvent>(window, 'counterEvent').pipe(
