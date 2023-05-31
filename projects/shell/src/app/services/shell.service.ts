@@ -1,31 +1,26 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
+import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ShellService implements OnDestroy {
-  private subscrpition$ = new Subscription();
-
+export class ShellService {
   private counter = 0;
   counter$ = new BehaviorSubject<number>(this.counter);
 
-  constructor() {
-    this.subscrpition$ = fromEvent<StorageEvent>(window, 'counterEvent')
-      .pipe(
-        tap((data: any) => {
-          this.counter = data.detail.counter;
-          this.counter$.next(this.counter);
-        })
-      )
-      .subscribe();
-  }
-  ngOnDestroy(): void {
-    this.subscrpition$.unsubscribe();
+  constructor() {}
+
+  liteningEvent(): Observable<null> {
+    return fromEvent<StorageEvent>(window, 'counterEvent').pipe(
+      tap((data: any) => {
+        this.counter = data.detail.counter;
+        this.counter$.next(this.counter);
+      })
+    );
   }
 
-  increase() {
+  increase(): void {
     this.counter++;
     const counterEvent = new CustomEvent('counterEvent', {
       detail: {
@@ -36,7 +31,7 @@ export class ShellService implements OnDestroy {
     // this.counter$.next(this.counter);
   }
 
-  decrease() {
+  decrease(): void {
     this.counter--;
     // sessionStorage.setItem('counter', this.counter.toString());
     this.counter$.next(this.counter);

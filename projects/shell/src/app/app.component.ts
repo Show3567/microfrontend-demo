@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.shellService.liteningEvent().subscribe();
     this.store.select(remoteCounterSelector).subscribe((data: any) => {
       if (data && data.remoteCount) {
         this.remotecounter = data.remoteCount;
