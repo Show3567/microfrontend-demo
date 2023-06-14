@@ -14,6 +14,7 @@ import { CounterModule } from './counter/counter.module';
     BrowserModule,
     AppRoutingModule,
     FlightsModule,
+
     StoreModule.forRoot({}, {}),
     CounterModule,
   ],
