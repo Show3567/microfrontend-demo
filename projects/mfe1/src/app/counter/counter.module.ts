@@ -23,3 +23,8 @@ const routes: Routes = [
   ],
 })
 export class CounterModule {}
+
+// {
+//   counter: 34,
+//   remotecounter: 45
+// }
