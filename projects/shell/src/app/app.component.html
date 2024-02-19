@@ -4,8 +4,16 @@
     <div>Get The Data Chnage from Remote: {{ remotecounter }}</div>
     <hr />
     <div style="display: flex">
-      <button routerLink="/adder" class="button">Shell</button>
-      <button routerLink="/remote/multiply" class="button">MF1</button>
+      <button routerLink="/adder" routerLinkActive="active" class="button">
+        Shell
+      </button>
+      <button
+        routerLink="/remote/multiply"
+        routerLinkActive="active"
+        class="button"
+      >
+        MF1
+      </button>
     </div>
 
     <div>shell counter: {{ shellService.counter$ | async }}</div>
@@ -15,7 +23,11 @@
       <button (click)="shellService.decrease()" class="button">-</button>
     </div>
 
-    <div class="router_container" style="border: 2px solid yellowgreen">
+    <div class="router_container">
+      <span>
+        This is routeroutlet for counterComponent:
+        <strong>mfe1 & shell</strong>
+      </span>
       <router-outlet></router-outlet>
     </div>
   </header>

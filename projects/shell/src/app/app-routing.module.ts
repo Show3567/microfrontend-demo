@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'adder', component: CounterComponent },
   {
     path: 'remote',
+    // & ['mfe1', 'RemoteModule'].join('');
     loadChildren: () =>
       import('mfe1/RemoteModule').then((m) => m.CounterModule),
   },
