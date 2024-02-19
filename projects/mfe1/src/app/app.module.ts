@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlightsModule } from './flights/flights.module';
 import { CounterModule } from './counter/counter.module';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { CounterModule } from './counter/counter.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlightsModule,
 
     StoreModule.forRoot({}, {}),
     CounterModule,
