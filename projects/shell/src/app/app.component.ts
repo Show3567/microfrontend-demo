@@ -24,11 +24,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.eventLitenerSubscription = this.shellService
       .liteningEvent()
       .subscribe();
-    // this.store.select(remoteCounterSelector).subscribe((data: any) => {
-    //   if (data && data.remoteCount) {
-    //     this.remotecounter = data.remoteCount;
-    //   }
-    // });
+    this.store.select(remoteCounterSelector).subscribe((data: any) => {
+      if (data && data.remoteCount) {
+        this.remotecounter = data.remoteCount;
+      }
+    });
   }
   ngOnDestroy(): void {
     this.eventLitenerSubscription.unsubscribe();

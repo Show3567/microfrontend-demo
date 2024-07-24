@@ -3,6 +3,14 @@
     <img src="../assets/angular.svg" class="App-logo" alt="logo" />
     <div>Get The Data Change from Remote: {{ remotecounter }}</div>
     <hr />
+
+    <div>shell counter: {{ shellService.counter$ | async }}</div>
+
+    <div style="display: flex">
+      <button (click)="shellService.increase()" class="button">+</button>
+      <button (click)="shellService.decrease()" class="button">-</button>
+    </div>
+
     <div style="display: flex">
       <button routerLink="/adder" routerLinkActive="active" class="button">
         Shell
@@ -15,14 +23,6 @@
         MF1
       </button>
     </div>
-
-    <div>shell counter: {{ shellService.counter$ | async }}</div>
-
-    <div style="display: flex">
-      <button (click)="shellService.increase()" class="button">+</button>
-      <button (click)="shellService.decrease()" class="button">-</button>
-    </div>
-
     <div class="router_container">
       <span>
         This is routeroutlet for counterComponent:
